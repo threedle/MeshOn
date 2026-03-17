@@ -17,13 +17,23 @@ body {
   /* font-variant: small-caps; */
 }
 
-.threedle-icon {
-    background: url('/3DHighlighter/static/images/threedle-icon.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 50px;
-    width: 100px;
+.navbar-icon-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.navbar-logo {
     display: block;
+    height: 50px;
+    width: auto;
+    max-width: 140px;
+}
+
+.geometry-and-city-icon {
+    height: 44px;
 }
 
 .teaser .hero-body {
