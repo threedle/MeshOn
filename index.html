@@ -1,42 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Intersection-Free Mesh-to-Mesh Composition">
-  <meta name="keywords" content="MeshOn: Intersection-Free Mesh-to-Mesh Composition">
+  <meta name="description" content="MeshOn: Intersection-Free Mesh-to-Mesh Composition">
+  <meta name="keywords" content="MeshOn, Intersection-Free Mesh-to-Mesh Composition, mesh composition">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MeshUP</title>
+  <title>MeshOn</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/wand.ico">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+<nav class="navbar site-navbar" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand site-navbar-brand">
       <div class="navbar-icon-links">
         <a class="navbar-item" href="https://3dl.cs.uchicago.edu/" aria-label="3DL">
           <img class="navbar-logo threedle-icon" src="./static/images/threedle-icon.png" alt="3DL logo">
@@ -49,69 +29,42 @@
   </div>
 </nav>
 
-
-<section class="hero">
+<section class="hero publication-header">
   <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"> MeshOn: Intersection-Free Mesh-to-Mesh Composition </h1>
-          <!-- <h1 class="is-size-4 publication-title">3DV 2025 (Best Paper Honorable Mention)</h1> -->
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://hywkim-brian.github.io/site/">Hyunwoo Kim </a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://itailang.github.io/">Itai Lang </a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.hadarelor.com/">Hadar Averbuch-Elor </a><sup>3</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.silviasellan.com/">Silvia Sellán </a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://people.cs.uchicago.edu/~ranahanocka/">Rana Hanocka</a><sup>2</sup>
-            </span>
-          </div>
+    <div class="container is-max-desktop page-column">
+      <div class="has-text-centered">
+        <h1 class="title is-1 publication-title">MeshOn: Intersection-Free Mesh-to-Mesh Composition</h1>
+        <p class="publication-venue venue-spacer" aria-hidden="true">&nbsp;</p>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Columbia University  </span>
-            <span class="author-block"><sup>2</sup>University of Chicago  </span>
-            <span class="author-block"><sup>3</sup>Cornell University </span>
-          </div>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">
+            <a href="https://hywkim-brian.github.io/site/">Hyunwoo Kim</a><sup>1</sup>,
+          </span>
+          <span class="author-block">
+            <a href="https://itailang.github.io/">Itai Lang</a><sup>2</sup>,
+          </span>
+          <span class="author-block">
+            <a href="https://www.hadarelor.com/">Hadar Averbuch-Elor</a><sup>3</sup>,
+          </span>
+          <span class="author-block">
+            <a href="https://www.silviasellan.com/">Silvia Sellán</a><sup>1</sup>,
+          </span>
+          <span class="author-block">
+            <a href="https://people.cs.uchicago.edu/~ranahanocka/">Rana Hanocka</a><sup>2</sup>
+          </span>
+        </div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              
-              <!-- arXiv Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2408.14899"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              
+        <div class="is-size-5 publication-authors publication-affiliations">
+          <span class="author-block"><sup>1</sup> Columbia University</span>
+          <span class="author-block"><sup>2</sup> University of Chicago</span>
+          <span class="author-block"><sup>3</sup> Cornell University</span>
+        </div>
 
-                <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/threedle/MeshUp"
-                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-
-              
-            </div>
-
-          </div>
+        <div class="publication-links">
+          <span class="link-block">
+            <span class="button is-normal is-rounded is-dark is-static">Paper</span>
+          </span>
+          <!-- Hide the Code button until a public repository exists. -->
         </div>
       </div>
     </div>
@@ -119,213 +72,429 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- <image id="teaser">
-        <img src="./static/images/figures/teaser.png"
-                type="image/png">
-      </image> -->
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <video poster="" id="video" autoplay muted loop playsinline height="80%" width="80%">
-            <source src="./static/videos/concatenated.mp4" type="video/mp4">
-        </video>
-      </div> 
-      <script src="./static/video.js"></script>
+  <div class="container is-max-desktop page-column">
+    <div class="hero-body hero-media">
+      <!-- HERO FIGURE PLACEHOLDER: assets/meshon/fig1_teaser.png -->
+      <!-- Paper source: Figure 1, page 1. -->
+      <!-- Put this directly below the authors / buttons block. -->
+      <!-- Use the figure crop only. Do not include the PDF page border, page number, or printed caption text. -->
+      <!-- Keep the four-stage teaser visible: base mesh, accessory, and successive MeshOn fits. -->
+      <!-- If the engineer wants to stay even closer to the current MeshUp page, this hero image can be omitted; the rest of the blueprint still works. -->
+      <div class="meshon-figure meshon-figure-hero">
+        <p class="placeholder-label">Hero figure placeholder</p>
+        <p class="placeholder-path">assets/meshon/fig1_teaser.png</p>
+        <p class="placeholder-note">Paper source: Figure 1, page 1</p>
+      </div>
 
-      <h2 class="subtitle has-text-centered">
-        MeshUp is capable of deforming a source mesh into various concepts and into their weighted blends. The target objectives can
-        be text prompts, images, or even meshes. Users can also input a set of control vertices to explicitly define where on the mesh each concept
-        should be expressed.
-      </h2>
+      <p class="summary-line">
+        MeshOn is a multi-step optimization algorithm that fits accessories onto meshes realistically, tightly, and without intersections.
+      </p>
     </div>
   </div>
 </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+<main>
+  <section class="section page-section">
+    <div class="container is-max-desktop page-column">
+      <div class="page-block abstract-block">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified narrative-copy">
           <p>
-            We propose MeshOn, a method that finds physically and
-            semantically realistic compositions of two input meshes. Given an acces-
-            sory, a base mesh with a user-defined target region, and optional text
-            strings for both meshes, MeshOn uses a multi-step optimization frame-
-            work to realistically fit the meshes onto each other while preventing in-
-            tersections. We initialize the shapes’ rigid configuration via a structured
-            alignment scheme using Vision-to-Language Models, which we then op-
-            timize using a combination of attractive geometric losses, and a physics-
-            inspired barrier loss that prevents surface intersections. We then obtain a
-            final deformation of the object, assisted by a diffusion prior. Our method
-            successfully fits accessories of various materials over a breadth of target
-            regions, and is designed to fit directly into existing digital artist work-
-            flows. We demonstrate the robustness and accuracy of our pipeline by
-            comparing it with generative approaches and traditional registration al-
-            gorithms.
+            We propose MeshOn, a method that finds physically and semantically realistic compositions of two input meshes. Given an accessory, a base mesh with a user-defined target region, and optional text strings for both meshes, MeshOn uses a multi-step optimization framework to realistically fit the meshes onto each other while preventing intersections. We initialize the shapes' rigid configuration via a structured alignment scheme using Vision-to-Language Models, which we then optimize using a combination of attractive geometric losses, and a physics-inspired barrier loss that prevents surface intersections. We then obtain a final deformation of the object, assisted by a diffusion prior. Our method successfully fits accessories of various materials over a breadth of target regions, and is designed to fit directly into existing digital artist workflows. We demonstrate the robustness and accuracy of our pipeline by comparing it with generative approaches and traditional registration algorithms.
           </p>
         </div>
       </div>
-    </div>
 
+      <p class="section-divider" aria-hidden="true">* * *</p>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <hr class="divider" />
-        <h2 class="title is-3">Deformation into Multiple Concepts</h2>
-        <div class="overview-image">
-          <img src="./static/images/figures/gallery.png" type="image/png">
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Applications</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig4_applications.png -->
+        <!-- Paper source: Figure 4, page 5. -->
+        <!-- Place directly below the heading and above the text. -->
+        <!-- Keep the full sequence of diverse examples. -->
+        <!-- Do not crop away the examples at the far left or far right. -->
+        <!-- Exclude the printed paper caption and page furniture. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig4_applications.png</p>
+          <p class="placeholder-note">Paper source: Figure 4, page 5</p>
         </div>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified narrative-copy">
           <p>
-            MeshUp takes as input a 3D mesh and several target objectives, and deforms the source mesh by optimizing the
-            per-triangle Jacobians of the mesh. MeshUp produces a deformation that blends multiple concepts together, respective of the user-defined weights for each concept.
-            Notice how the deformation smoothly transitions the source mesh into a mixture of different concepts, and weights dictate the magnitude of their expression.
-            MeshUp supports as many targets as desired. 
+            MeshOn is capable of fitting a wide variety of accessories on a range of different meshes. Our method handles challenging spatial relationships such as sliding glasses along a head to align with the ears, positioning hats and helmets to conform to head curvature, wrapping bands around articulated limbs, and fitting objects along long, curved surfaces. These examples demonstrate the flexibility of our fitting trajectory and its ability to adapt accessories to widely varying shapes and poses.
+          </p>
+          <p>
+            We exemplify our algorithm's applicability through several prototypical examples. As shown in Figure 4, our method can find tight, non-intersecting configurations between a diverse range of meshes, even when these contain complex geometries, concavities, and topologies.
           </p>
         </div>
       </div>
-    </div>
-    <!--/ Composite. -->
-    <!-- Gallery. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <hr class="divider" />
-        <h2 class="title is-3">Localized Deformation</h2>
-        <div class="overview-image">
-          <img src="./static/images/figures/local_site.png" type="image/png">
+
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Region-controlled composition</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig10_region_control.png -->
+        <!-- Paper source: Figure 10, page 11. -->
+        <!-- Keep both subfigures: (a) Ring Placement and (b) Region Sensitivity. -->
+        <!-- Preserve the highlighted-region overlays and the arrows / labels already present inside the figure. -->
+        <!-- Use a slightly wider-than-default presentation if needed so the highlighted regions remain legible. -->
+        <div class="meshon-figure meshon-figure-wide">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig10_region_control.png</p>
+          <p class="placeholder-note">Paper source: Figure 10, page 11</p>
         </div>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified narrative-copy">
           <p>
-            MeshUp can also localize the deformation to specific regions on the mesh. The user can select a set of control vertices to define where on the mesh each concept should be expressed.
-            The deformation (of one or multiple concepts) is then constrained to these regions, producing a more controlled and localized result.
+            As expected, our algorithm's output is most sensitive to the selected target region on the base mesh.
+          </p>
+          <p>
+            (a) Given four distinct user-selected target regions, MeshOn places a ring precisely on each selected region, demonstrating explicit user control over the fitting process. (b) Because the method adheres strictly to the selected region, asset placement is sensitive to the region definition; for example, glasses sit naturally on the ears only if a small portion of the ear region is included in the selection.
           </p>
         </div>
       </div>
-    </div>
-<!--/ Gallery. -->
-    
 
-    <!-- Overview. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <hr class="divider" />
-        <h2 class="title is-3">Method Overview</h2>
-        <div class="overview-image">
-          <img src="./static/images/figures/system.png" type="image/png">
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Designed to fit directly into existing digital artist workflows</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig2_workflow_comparison.png -->
+        <!-- Paper source: Figure 2, page 2. -->
+        <!-- Preserve the full side-by-side comparison between Instant3dit and Ours. -->
+        <!-- Keep the callouts about rig / texture preservation visible. -->
+        <!-- Do not include the paper caption text inside the image crop. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig2_workflow_comparison.png</p>
+          <p class="placeholder-note">Paper source: Figure 2, page 2</p>
         </div>
-        
-        <div class="content has-text-justified">
+        <div class="content has-text-justified narrative-copy">
           <p>
-            At each iteration, it creates parallel UNET branches, assigned each to the input target objectives (we call these the "Target Branches").
-            Then, it passes the same noised renderings and the corresponding text input through
-            the UNet of a pretrained text-to-image model. On a different branch (the "Blending Branch"), it interpolates the activations 
-            extracted from the Target Branches, and interpolates them, respective to the assigned weights. Replacing the activations in the blending branch with the interpolated activations,
-            MeshUp backpropagates the gradients from the blending branch via Score Distillation Sampling (SDS), updating the Jacobians of the mesh accordingly.
+            Digital artists often load shapes from pre-existing libraries of meshes that include additional information like animation rigs, skinning weights, texture maps and more. Generative shape editing methods like Instant3dit discard this information, performing global changes to the shapes and merging them together. MeshOn is designed to fit exactly within this common artistic pipeline, and perfectly preserves all pre-existing information on the input meshes.
+          </p>
+          <p>
+            Mesh composition is the process of assembling several pre-modeled 3D objects into a unified asset. It is a fundamental part of many 3D content creation workflows, in which an artist selects accessories from an existing library and manually rotates, translates and deforms them to fit realistically on a character's base mesh without intersections.
+          </p>
+          <p>
+            However, recent advances in 3D content creation have focused mostly on generative tasks; for example, creating shapes from text inputs. These methods produce doubtlessly impressive results; yet, they do so at the cost of artist control and by relying on implicit geometric representations that are not directly usable in graphics pipelines. Even when triangle meshes are generated, these are significantly lower in quality than those already available to artists in pre-existing shape libraries, lacking critical attributes like textures, animation rigs, and distinct material parameters.
           </p>
         </div>
       </div>
-    </div>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <hr class="divider" />
-        <h2 class="title is-3">Blended Score Distillation Overview</h2>
-        <div class="overview-image">
-          <img src="./static/images/figures/BSD.png" type="image/png">
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig3_method_overview.png -->
+        <!-- Paper source: Figure 3, page 3. -->
+        <!-- Preserve the orange target-region highlight and the labels Step 1 / Step 2 / Step 3 / Step4. -->
+        <!-- Keep the left-to-right progression visible. -->
+        <!-- Exclude the paper caption and page border. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig3_method_overview.png</p>
+          <p class="placeholder-note">Paper source: Figure 3, page 3</p>
         </div>
-        
-        <div class="content has-text-justified">
+        <div class="content has-text-justified narrative-copy">
           <p>
-            The key idea of Blended Score Distillation (BSD) is to perform a weighted interpolation of the activations that represent different concepts.
-            We first extract the activations from the Target Branches, interpolate their activations, and then inject them into the Blending Branch. As we perform this operation on each attention layer of the UNet, the blending branch yields a score that effectively represents the weighted blend of the target objectives.
+            We compose the two meshes through a multi-step optimization pipeline: from an initialization obtained with a Vision-to-Language Model, we start by obtaining a tight fit containing intersections, which we then resolve. After finetuning the fit to obtain the best possible rigid fit, we improve it further by allowing small deformations in the accessory object.
+          </p>
+          <p>
+            The inputs to our method are a base mesh and an object or accessory mesh in arbitrary relative position, together with a highlighted region of the base mesh and an optional text string describing both shapes.
+          </p>
+          <p>
+            These goals often act in opposition to one another; for example, achieving a tighter fit will often produce intersections, while removing intersections will tend to produce a looser fit. We address this challenge through a multi-step optimization framework in which the different constraints, objectives and degrees of freedom of the problem are introduced one at a time.
           </p>
         </div>
       </div>
-    </div>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <hr class="divider" />
-        <h2 class="title is-3">Localiztion Overview</h2>
-        <div class="overview-image">
-          <img src="./static/images/figures/system_local.png" type="image/png">
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Trajectory-based intersection solve</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig5_trajectory_solve.png -->
+        <!-- Paper source: Figure 5, page 6. -->
+        <!-- Preserve the Gaussian-distribution diagram, the transparent interpolated trajectory frames, and the selected final configuration. -->
+        <!-- This figure is more explanatory than aesthetic; do not crop it too aggressively. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig5_trajectory_solve.png</p>
+          <p class="placeholder-note">Paper source: Figure 5, page 6</p>
         </div>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified narrative-copy">
           <p>
-            To locaalize the deformation, MeshUp creates a probabilistic Region of Interest (ROI) map on the surface of the mesh using the self-attention maps of the selected control vertices.
-            It then uses this 3D ROI map to restrain the jacobians of the mesh, ensuring that the deformation is localized to the selected regions.
-            For localization objectives with multiple targets, we rasterize the 3D ROI map of each target from the same viewpoint as the renderings, and use them as binary masks to control the expression of the activations.
+            In the previous step, we rigidly transformed the object to tightly fit into the base mesh; however, this often introduces intersections between them. We will now turn this intersecting configuration into a non-intersecting one, without compromising too much on tightness.
+          </p>
+          <p>
+            To do so, we will draw inspiration from how one puts on an accessory: for most tightly-fitting ones, there exists a valid, intersection-free trajectory that moves the object from a detached configuration into a tight fit with the base mesh.
+          </p>
+          <p>
+            Critically, in Step 2 of our algorithm, we sample trajectories to find a close, non-intersecting configuration. Skipping this causes the barrier term in Step 3 to greatly displace the shape away from the base mesh.
           </p>
         </div>
       </div>
-    </div>
-    <!--/ Overview. -->
 
-   
+      <p class="section-divider" aria-hidden="true">* * *</p>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <hr class="divider" />
-        <h2 class="title is-3">Comparison with Various Methods</h2>
-        <div class="overview-image">
-          <img src="./static/images/figures/comparison.png" type="image/png">
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Elastic deformation</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig6_material_properties.png -->
+        <!-- Paper source: Figure 6, page 7. -->
+        <!-- Preserve the material labels exactly as shown in the figure (e.g., "Extremely soft beanie", "Moderately soft beanie", "Plastic beanie", "Hard metal beanie"). -->
+        <!-- Keep the left-most standalone object mesh and the successive fitted outputs visible. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig6_material_properties.png</p>
+          <p class="placeholder-note">Paper source: Figure 6, page 7</p>
         </div>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified narrative-copy">
           <p>
-            Compared to the state-of-the-art text-to-3D generative models, MeshUp produces results that have both better triangulation and geometric details.
-            Our method is also first to support local deformation capabilities, which not only gurantees the preservation of unselected regions, but also greatly surpasses the quality of meshes generated solely using text descriptions.
+            The physically-inspired optimization of the previous step outputs a rigidly transformed mesh, which we interpret as the best possible rigid fit of the object onto the base mesh. In reality, however, many accessories fit their wearer more tightly by undergoing small deformations: a hat is stretched by a head's shape, a necklace drapes over a person's chest, a face mask deforms to fit the nose and mouth of a surgeon.
+          </p>
+          <p>
+            MeshOn is capable of fitting the accessory onto the base mesh in a way that considers material properties. Instead of having to specify the numeric material parameters, artists can provide material guidance through text prompts, that get combined with rendered images and interpreted by a VLM to output specific elastic parameters.
+          </p>
+          <p>
+            A particularly relevant set of parameters are the material elastic properties &lambda; and &mu;, which can be derived from the material's Young's modulus and Poisson's ratio. These quantities are tabulated for well-known materials; however, we make the process more intuitive for an artist by assigning the values from text inputs using an LLM.
           </p>
         </div>
       </div>
+
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Comparisons</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig11_comparisons.png -->
+        <!-- Paper source: Figure 11, page 12. -->
+        <!-- Preserve all columns: Ours, Best ICP, Best FGR, Ransac+ICP, Ransac+FGR. -->
+        <!-- Preserve the blowup insets. -->
+        <!-- Do not crop so tightly that the method labels become hard to read. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig11_comparisons.png</p>
+          <p class="placeholder-note">Paper source: Figure 11, page 12</p>
+        </div>
+        <div class="content has-text-justified narrative-copy">
+          <p>
+            Unlike ours, classical registration algorithms like ICP contain no semantic guidance: therefore, they will produce unrealistic configurations; e.g., glasses that sit on the eyes upside down. These algorithms are also not designed to avoid intersections; therefore, they will produce many of them.
+          </p>
+          <p>
+            Additionally, non-neural methods like those based on the Iterative Closest Point algorithm will not account for the semantic fit between the two objects; e.g., fitting the glasses backwards on the face.
+          </p>
+          <p>
+            By modifying a shape using diffusion guidance, a highlighted region, and an optional text prompt, our work may seem similar to existing text-guided generative mesh-editing works. Unlike these, however, our work preserves both the object and base meshes as well as any information stored in them.
+          </p>
+          <p>
+            Taking Instant3dit as a representative example, Instant3dit produces a generative edit that merges the geometry of both objects and discards the animation rig of the base mesh and the parametrization of the accessory. By contrast, our method preserves all these, enabling common downstream tasks like animation, physical simulation, and texture painting.
+          </p>
+        </div>
+      </div>
+
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Ablation</h2>
+        <!-- SECTION FIGURE PLACEHOLDER: assets/meshon/fig7_ablation.png -->
+        <!-- Paper source: Figure 7, page 8. -->
+        <!-- Preserve the entire left-to-right ablation lineup, including "Our complete algorithm". -->
+        <!-- Keep the small labels (e.g., "without VLM initialization", "without Step 1", etc.) readable. -->
+        <div class="meshon-figure">
+          <p class="placeholder-label">Section figure placeholder</p>
+          <p class="placeholder-path">assets/meshon/fig7_ablation.png</p>
+          <p class="placeholder-note">Paper source: Figure 7, page 8</p>
+        </div>
+        <div class="content has-text-justified narrative-copy">
+          <p>
+            MeshOn uses a multi-step process, where each of them is critical for achieving a desirable mesh to mesh composition result. Omitting any of the steps yields a semantically or physically unplausible solutions. Utilizing Step 4 further improves the result, allowing the asset to deform and better fit the base mesh.
+          </p>
+          <p>
+            To obtain a tight, non-intersecting fit between the base and the accessory, our algorithm relies on a VLM-driven initialization and four successive optimizations.
+          </p>
+        </div>
+      </div>
+
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block">
+        <h2 class="title is-3 has-text-centered">Quantitative Evaluation</h2>
+        <div class="content has-text-justified narrative-copy">
+          <p>
+            We quantitatively evaluate our method along two complementary dimensions: semantic alignment quality and geometric validity.
+          </p>
+        </div>
+
+        <h3 class="title is-5 section-subheading">Alignment Baselines</h3>
+        <div class="table-wrap">
+          <table class="table is-fullwidth is-striped quant-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Instant3Dit</th>
+                <th>Best ICP</th>
+                <th>Best FGR</th>
+                <th>RANSAC+ICP</th>
+                <th>RANSAC+FGR</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>CLIP (&uarr;)</th>
+                <td>0.311</td>
+                <td>0.341</td>
+                <td>0.333</td>
+                <td>0.331</td>
+                <td>0.321</td>
+                <td>0.356</td>
+              </tr>
+              <tr>
+                <th>CLIP-IQA (&uarr;)</th>
+                <td>0.559</td>
+                <td>0.586</td>
+                <td>0.609</td>
+                <td>0.608</td>
+                <td>0.610</td>
+                <td>0.604</td>
+              </tr>
+              <tr>
+                <th>VQA (&uarr;)</th>
+                <td>65.62</td>
+                <td>73.71</td>
+                <td>73.97</td>
+                <td>73.72</td>
+                <td>73.68</td>
+                <td>74.49</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="title is-5 section-subheading">Ablation Study</h3>
+        <div class="table-wrap">
+          <table class="table is-fullwidth is-striped quant-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Init</th>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>CLIP (&uarr;)</th>
+                <td>0.338</td>
+                <td>0.351</td>
+                <td>0.346</td>
+                <td>0.347</td>
+                <td>0.354</td>
+                <td>0.356</td>
+              </tr>
+              <tr>
+                <th>CLIP-IQA (&uarr;)</th>
+                <td>0.594</td>
+                <td>0.605</td>
+                <td>0.609</td>
+                <td>0.595</td>
+                <td>0.613</td>
+                <td>0.604</td>
+              </tr>
+              <tr>
+                <th>VQA (&uarr;)</th>
+                <td>74.197</td>
+                <td>73.967</td>
+                <td>73.776</td>
+                <td>74.049</td>
+                <td>73.985</td>
+                <td>74.49</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-caption">
+          Quantitative evaluation using CLIP, CLIP-IQA, and VQA scores. Top: comparison against alignment baselines. Bottom: ablation study of our multi-step pipeline. Scores are averaged over per-example best renderings (best of 4); higher is better.
+        </p>
+
+        <div class="content has-text-justified narrative-copy">
+          <p>
+            Across these metrics, our full method achieves the strongest or near-strongest performance. Alignment-based methods also frequently produce mesh intersections, an undesirable artifact for most graphics workflows.
+          </p>
+        </div>
+
+        <h3 class="title is-5 section-subheading">Penetration statistics</h3>
+        <div class="table-wrap">
+          <table class="table is-fullwidth is-striped quant-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Best ICP</th>
+                <th>Best FGR</th>
+                <th>RANSAC+ICP</th>
+                <th>RANSAC+FGR</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Intersecting faces (&darr;)</th>
+                <td>628</td>
+                <td>660</td>
+                <td>544</td>
+                <td>434</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th>Max penetration (&darr;)</th>
+                <td>0.0197</td>
+                <td>0.0237</td>
+                <td>0.0243</td>
+                <td>0.0237</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-caption">
+          Penetration statistics averaged over ten experiments. We report the total number of intersecting faces and the maximum penetration depth. Our method produces intersection-free compositions.
+        </p>
+      </div>
+
+      <p class="section-divider" aria-hidden="true">* * *</p>
+
+      <div class="page-block" id="BibTeX">
+        <h2 class="title is-3 has-text-centered">BibTeX</h2>
+        <p class="bibtex-note has-text-centered">
+          Official citation metadata can be dropped in here once the venue or public preprint link is available.
+        </p>
+        <!--
+        @misc{meshon,
+          title={MeshOn: Intersection-Free Mesh-to-Mesh Composition},
+          author={Hyunwoo Kim and Itai Lang and Hadar Averbuch-Elor and Silvia Sellán and Rana Hanocka},
+          year={TODO},
+          note={Replace with the official venue / arXiv / URL once public}
+        }
+        -->
+      </div>
+
+      <p class="section-divider" aria-hidden="true">* * *</p>
     </div>
-
-
-    
-
-
-    
-
-  </div>
-</section>
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{kim2024meshupmultitargetmeshdeformation,
-      title={MeshUp: Multi-Target Mesh Deformation via Blended Score Distillation}, 
-      author={Hyunwoo Kim and Itai Lang and Noam Aigerman and Thibault Groueix and Vladimir G. Kim and Rana Hanocka},
-      year={2024},
-      eprint={2408.14899},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2408.14899}, 
-}</code></pre>
-  </div>
-</section>
-
+  </section>
+</main>
 
 <footer class="footer">
-  <div class="container">
+  <div class="container footer-column">
     <div class="content has-text-centered">
-      <a class="icon-link" href="https://github.com/threedle/meshup" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Parts of the code for this website are reused from </a> <a href="https://github.com/nerfies/nerfies.github.io">source code</a> .
-          </p>
-        </div>
-      </div>
+      <p>
+        This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Parts of the code for this website are reused from <a href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+      </p>
     </div>
   </div>
 </footer>
