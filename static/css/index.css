@@ -33,13 +33,13 @@ a:hover {
 
 .navbar-logo {
   display: block;
-  height: 50px;
+  height: 250px;
   width: auto;
-  max-width: 140px;
+  max-width: 700px;
 }
 
 .geometry-and-city-icon {
-  height: 44px;
+  height: 220px;
 }
 
 .publication-header .hero-body {
@@ -257,6 +257,15 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
+  .navbar-logo {
+    height: 140px;
+    max-width: 360px;
+  }
+
+  .geometry-and-city-icon {
+    height: 124px;
+  }
+
   .publication-title {
     font-size: 2.35rem !important;
   }
