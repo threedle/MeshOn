@@ -1,0 +1,106 @@
+%% This file contains a number of tweaks that are typically applied to the main document.
+%% They are not enabled by default, but can be enabled by uncommenting the relevant lines.
+
+%%
+%% Inline annotations; for predefined colors, refer to "dvipsnames" in the xcolor package:
+%% https://tinyurl.com/overleaf-colors
+%%
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\todo}[1]{{\color{red}#1}}
+\newcommand{\TODO}[1]{\textbf{\color{red}[TODO: #1]}}
+\newif\ifdraft
+\drafttrue
+% \draftfalse
+
+\ifdraft
+
+\definecolor{silviablue}{HTML}{1D4F91}
+% comments:
+\newcommand{\brian}[1]{{\color{orange}[\textbf{Brian:} #1]}}
+\newcommand{\itai}[1]{{\color{magenta}[\textbf{Itai:} #1]}}
+\newcommand{\silvia}[1]{{\color{silviablue}[\textbf{Silvia:} #1]}}
+\newcommand{\hadar}[1]{{\color{purple}[\textbf{Hadar:} #1]}}
+\newcommand{\rana}[1]{{\color{cyan}[\textbf{Rana:} #1]}}
+\definecolor{LavenderBlue}{rgb}{0.69,    0.87,    0.54}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{lightbluishgrey}{rgb}{0.76471,0.84824,0.91647}
+\newcommand{\basemesh}{\mathcal{M}_b}
+\newcommand{\restmesh}{\mathcal{M}_r}
+\newcommand{\baseverts}{\mathcal{V}_b}
+\newcommand{\basefaces}{\mathcal{F}_b}
+\newcommand{\highlightedfaces}{F^*}
+\newcommand{\highlightedmesh}{\mathcal{M}_b^*}
+\newcommand{\highlightednormal}{\mathbf{n}^*}
+\newcommand{\objectmesh}{\mathcal{M}_o}
+\newcommand{\objectverts}{\mathcal{V}_o}
+\newcommand{\objectfaces}{\mathcal{F}_o}
+\newcommand{\transformation}{T}
+\newcommand{\rigid}{R}
+\newcommand{\parameters}{\theta}
+\newcommand{\rotation}{\mathbf{e}_1, \mathbf{e}_2}
+\newcommand{\translation}{\mathbf{t}}
+\newcommand{\scale}{s}
+\newcommand{\vertex}{v}
+\newcommand{\vertext}{t}
+\newcommand{\tbold}{\mathbf{t}}
+\newcommand{\thresholdprox}{\ell}
+\newcommand{\gaussian}{\mathcal{N}}
+\newcommand{\uniform}{\mathcal{U}}
+\newcommand{\numnonintersecting}{n}
+\newcommand{\numtimesteps}{m}
+\newcommand{\contactthreshold}{h}
+\newcommand{\tr}{tr}
+
+
+\newcommand{\ourmethod}{MeshOn}
+\usepackage{mathtools}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\definecolor{headercolor}{RGB}{230,230,230}
+\definecolor{zebra}{RGB}{245,245,245}
+%%
+%% disable for camera ready / submission by uncommenting these lines  
+%%
+% \renewcommand{\TODO}[1]{}
+% \renewcommand{\todo}[1]{#1}
+
+%%
+%% work harder in optimizing text layout. Typically shrinks text by 1/6 of page, enable
+%% it at the very end of the writing process, when you are just above the page limit
+%%
+% \usepackage{microtype}
+
+%%
+%% fine-tune paragraph spacing
+%%
+% \renewcommand{\paragraph}[1]{\vspace{.5em}\noindent\textbf{#1.}}
+
+%%
+%% globally adjusts space between figure and caption
+%%
+% \setlength{\abovecaptionskip}{.5em}
+
+
+%%
+%% Allows "the use of \paper to refer to the project name"
+%% with automatic management of space at the end of the word
+%%
+% \usepackage{xspace}
+% \newcommand{\paper}{ProjectName\xspace}
+
+%%
+%% Commonly used math definitions
+%%
+% \DeclareMathOperator*{\argmin}{arg\,min}
+% \DeclareMathOperator*{\argmax}{arg\,max}
+
+%%
+%% Tigthen underline
+%%
+% \usepackage{soul}
+% \setuldepth{foobar}

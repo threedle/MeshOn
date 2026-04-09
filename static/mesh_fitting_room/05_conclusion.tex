@@ -1,0 +1,23 @@
+
+
+
+
+  
+\section{Conclusion} \label{sec:conclusion}
+We introduced a mesh composition algorithm that produces a meaningful, tight, non-intersecting fit between two shapes, inspired by the application of 3D digital art.
+For our work to be useful in an interactive, real-time 3D modeling session, however, its runtime would need to improve significantly.
+We believe there are several potential avenues for this: for example, one could dramatically improve runtimes by building increasingly fine nested simulation cages using existing methods \cite{sacht2015nested}. Then, one could perform the optimizations in our algorithm successively for each refinement level, thus reducing the need for extensive computation on the finest of levels.
+
+As a tool of artist control, our algorithm requires a user to specify a highlighted region of the base object onto which the accessory should be attached. Experimentally, we find that our algorithm's output is sensitive to small changes in this region (see \autoref{fig:highlight-region}), which could lead to user frustration.
+This issue could be resolved by future work combining our algorithm with existing text-based mesh selection tools like \emph{3D Highlighter} \cite{decatur20233d}.
+
+
+
+
+As a final step in our fit, our algorithm allows the object to deform in order to better match the base mesh.
+This results in an improved fit (see \autoref{fig:steps-ablation}) and provides an additional avenue for artist control (see \autoref{fig:materials}).
+However, our method still assumes mostly-rigid scenarios in which the attachment to the base mesh is the main source of deformation.
+For fundamentally elastic materials in which other internal and external forces are dominant (\eg, a piece of cloth draping over a character), a better fit can likely be achieved with existing physical simulation tools.
+
+This is a time of friction between rapidly improving 3D AI research and artist communities reluctant to incorporate these tools due to loss of control and creativity.
+While solving this friction is a complex problem beyond the scope of any one paper, we hope that non-generative AI-driven tools like \ourmethod{}, which is intended to fit directly into real digital artists' workflows while maximizing creative control, can aid in building bridges between these two worlds.

@@ -1,0 +1,669 @@
+
+% Journals
+
+% First, the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkh{\"a}user" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+% Entries % ================================================= |
+@misc{gpytoolbox,
+  title = {{gpytoolbox}: A Python Geometry Processing Toolbox},
+  author = {Silvia Sell\'{a}n and Oded Stein},
+  note = {\url{https://gpytoolbox.org/}},
+  year = {2023}
+}
+
+@misc{libigl,
+  title = { {libigl}: A simple {C++} geometry processing library},
+  author = {Alec Jacobson and Daniele Panozzo and others},
+  note = {https://libigl.github.io/},
+  year = {2018},
+}
+
+@inproceedings{besl1992method,
+  title={Method for registration of 3-D shapes},
+  author={Besl, Paul J and McKay, Neil D},
+  booktitle={Sensor fusion IV: control paradigms and data structures},
+  volume={1611},
+  pages={586--606},
+  year={1992},
+  organization={Spie}
+}
+
+@inproceedings{mckay2003review,
+  title={3D Registration: A Review of Techniques},
+  author={McKay, Neil D.},
+  booktitle={Proceedings of the SPIE Videometrics VIII},
+  year={2003}
+}
+
+@inproceedings{segal2009generalized,
+  title={Generalized-icp.},
+  author={Segal, Aleksandr and Haehnel, Dirk and Thrun, Sebastian},
+  booktitle={Robotics: science and systems},
+  volume={2},
+  number={4},
+  pages={435},
+  year={2009},
+  organization={Seattle, WA}
+}
+
+@article{salvi2007survey,
+  title={A Review of Recent Registration Methods for 3D Modelling},
+  author={Salvi, Joaquim and Matabosch, Carles and Fofi, David and Forest, Joan},
+  journal={Image and Vision Computing},
+  volume={25},
+  number={5},
+  pages={578--596},
+  year={2007},
+  publisher={Elsevier}
+}
+
+@article{tam2013registration,
+  title={Registration of 3D Point Clouds: A Survey},
+  author={Tam, Gary K. L. and Cheng, Kai and Lai, Yu-Kun and Langbein, Frank C. and Liu, Yonghuai and Marshall, David and Martin, Ralph R. and Sun, Xian-Fang and Rosin, Paul L.},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={19},
+  number={7},
+  pages={1199--1217},
+  year={2013},
+  publisher={IEEE}
+}
+
+@article{yang2015go,
+  title={Go-ICP: A globally optimal solution to 3D ICP point-set registration},
+  author={Yang, Jiaolong and Li, Hongdong and Campbell, Dylan and Jia, Yunde},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={38},
+  number={11},
+  pages={2241--2254},
+  year={2015},
+  publisher={IEEE}
+}
+
+@inproceedings{zhou2016fast,
+  title={Fast global registration},
+  author={Zhou, Qian-Yi and Park, Jaesik and Koltun, Vladlen},
+  booktitle={European conference on computer vision},
+  pages={766--782},
+  year={2016},
+  organization={Springer}
+}
+
+@inproceedings{litany2017deep,
+  author    = {Or Litany and Tal Remez and Emanuele Rodolà and Alex M. Bronstein and Michael M. Bronstein},
+  title     = {Deep Functional Maps: Structured Prediction for Dense Shape Correspondence},
+  booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
+  pages     = {5660--5668},
+  year      = {2017},
+  month     = {Oct},
+  publisher = {IEEE Computer Society},
+  doi       = {10.1109/ICCV.2017.603},
+  url       = {https://openaccess.thecvf.com/content_ICCV_2017/papers/Litany_Deep_Functional_Maps_ICCV_2017_paper.pdf}
+}
+
+@inproceedings{aoki2019pointnetlk,
+  title={PointNetLK: Robust \& Efficient Point Cloud Registration Using PointNet},
+  author={Aoki, Yasuhiro and Goforth, Hunter and Srivatsan, Rangaprasad Arumugam and Lucey, Simon},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7163--7172},
+  year={2019}
+}
+
+@inproceedings{huang2020fmr,
+  title={Feature-Metric Registration: A Fast, Robust, Feature-Metric Deep Learning Method for Point Cloud Registration},
+  author={Huang, Siyu and Liang, Zhenheng and Cho, Yoonwoo and Li, Xuejin and Wang, Yan and Yang, Yi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages={9969--9978},
+  year={2020}
+}
+
+@inproceedings{choy2020dgr,
+  title={Deep Global Registration},
+  author={Choy, Christopher B. and Dong, Wei and Koltun, Vladlen},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages={2514--2523},
+  year={2020}
+}
+
+@inproceedings{yew2022regtr,
+  title={REGTR: End-to-end Point Cloud Correspondences with Transformers},
+  author={Yew, Zi Jian and Lee, Gim hee},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2022},
+}
+
+@inproceedings{jiang2023se,
+  title={SE (3) Diffusion Model-based Point Cloud Registration for Robust 6D Object Pose Estimation},
+  author={Jiang, Haobo and Salzmann, Mathieu and Dang, Zheng and Xie, Jin and Yang, Jian},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+  year={2023}
+}
+
+@inproceedings{gao2023textdeformer,
+  title = {TextDeformer: Geometry Manipulation using Text Guidance},
+  author = {William Gao and Noam Aigerman and Thibault Groueix and Vladimir G. Kim and Rana Hanocka},
+  booktitle = {ACM Transactions on Graphics (SIGGRAPH)},
+  year = {2023}
+}
+
+@inproceedings{michel2022text2mesh,
+  title={Text2mesh: Text-driven neural stylization for meshes},
+  author={Michel, Oscar and Bar-On, Roi and Liu, Richard and Benaim, Sagie and Hanocka, Rana},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR)},
+  pages={13492--13502},
+  year={2022}
+}
+
+@inproceedings{dinh2025geometry,
+  title={Geometry in Style: 3D Stylization via Surface Normal Deformation},
+  author={Dinh, Nam Anh and Lang, Itai and Kim, Hyunwoo and Stein, Oded and Hanocka, Rana},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+  pages={28456--28467},
+  year={2025}
+}
+
+@article{xu2024fusiondeformer,
+  title = {FusionDeformer: Text-Guided Mesh Deformation Using Diffusion Models},
+  author = {Hao Xu and Yiqian Wu and Xiangjun Tang and Jing Zhang and Yang Zhang and Zhebin Zhang and Chen Li and Xiaogang Jin},
+  journal = {The Visual Computer},
+  volume = {40},
+  number = {7},
+  pages = {4701--4712},
+  year = {2024},
+  publisher = {Springer}
+}
+
+@inproceedings{yang2024dreammesh,
+  title = {DreamMesh: Jointly Manipulating and Texturing Triangle Meshes for Text-to-3D Generation},
+  author = {Haibo Yang and Yang Chen and Yingwei Pan and Ting Yao and Zhineng Chen and Zuxuan Wu and Yu-Gang Jiang and Tao Mei},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year = {2024}
+}
+
+@inproceedings{chen2024textmeshrefine,
+  title = {Text-Guided Controllable Mesh Refinement for Interactive 3D Modeling},
+  author = {Yun-Chun Chen and Selena Ling and Zhiqin Chen and Vladimir G. Kim and Matheus Gadelha and Alec Jacobson},
+  booktitle = {ACM SIGGRAPH Asia},
+  year = {2024}
+}
+
+@inproceedings{wang2019deep,
+  title={Deep closest point: Learning representations for point cloud registration},
+  author={Wang, Yue and Solomon, Justin M},
+  booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
+  pages={3523--3532},
+  year={2019}
+}
+
+@inproceedings{barda2025instant3dit,
+  title={Instant3dit: Multiview inpainting for fast editing of 3d objects},
+  author={Barda, Amir and Gadelha, Matheus and Kim, Vladimir G and Aigerman, Noam and Bermano, Amit H and Groueix, Thibault},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={16273--16282},
+  year={2025}
+}
+
+@article{Zhou2018,
+   author  = {Qian-Yi Zhou and Jaesik Park and Vladlen Koltun},
+   title   = {{Open3D}: {A} Modern Library for {3D} Data Processing},
+   journal = {arXiv:1801.09847},
+   year    = {2018},
+}
+
+@inproceedings{kim2025meshup,
+  title={Meshup: Multi-target mesh deformation via blended score distillation},
+  author={Kim, Hyunwoo and Lang, Itai and Aigerman, Noam and Groueix, Thibault and Kim, Vladimir G and Hanocka, Rana},
+  booktitle={2025 International Conference on 3D Vision (3DV)},
+  pages={222--239},
+  year={2025},
+  organization={IEEE}
+}
+
+@inproceedings{lin2023magic3d,
+  title={Magic3d: High-resolution text-to-3d content creation},
+  author={Lin, Chen-Hsuan and Gao, Jun and Tang, Luming and Takikawa, Towaki and Zeng, Xiaohui and Huang, Xun and Kreis, Karsten and Fidler, Sanja and Liu, Ming-Yu and Lin, Tsung-Yi},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+  pages={300--309},
+  year={2023}
+}
+
+@article{gemini,
+  title={Gemini: a family of highly capable multimodal models},
+  author={Team, Gemini and Anil, Rohan and Borgeaud, Sebastian and Alayrac, Jean-Baptiste and Yu, Jiahui and Soricut, Radu and Schalkwyk, Johan and Dai, Andrew M and Hauth, Anja and Millican, Katie and others},
+  journal={arXiv preprint arXiv:2312.11805},
+  year={2023}
+}
+
+@article{sacht2015nested,
+  title={Nested cages},
+  author={Sacht, Leonardo and Vouga, Etienne and Jacobson, Alec},
+  journal={ACM Transactions on Graphics (TOG)},
+  volume={34},
+  number={6},
+  pages={1--14},
+  year={2015},
+  publisher={ACM New York, NY, USA}
+}
+
+@inproceedings{radford2021learning,
+  title={Learning transferable visual models from natural language supervision},
+  author={Radford, Alec and Kim, Jong Wook and Hallacy, Chris and Ramesh, Aditya and Goh, Gabriel and Agarwal, Sandhini and Sastry, Girish and Askell, Amanda and Mishkin, Pamela and Clark, Jack and others},
+  booktitle={International conference on machine learning},
+  pages={8748--8763},
+  year={2021},
+  organization={PmLR}
+}
+
+@inproceedings{lin2024evaluating,
+  title={Evaluating text-to-visual generation with image-to-text generation},
+  author={Lin, Zhiqiu and Pathak, Deepak and Li, Baiqi and Li, Jiayao and Xia, Xide and Neubig, Graham and Zhang, Pengchuan and Ramanan, Deva},
+  booktitle={European Conference on Computer Vision},
+  pages={366--384},
+  year={2024},
+  organization={Springer}
+}
+@inproceedings{10.1145/2343483.2343501,
+author = {Sifakis, Eftychios and Barbic, Jernej},
+title = {FEM simulation of 3D deformable solids: a practitioner's guide to theory, discretization and model reduction},
+year = {2012},
+isbn = {9781450316781},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2343483.2343501},
+doi = {10.1145/2343483.2343501},
+abstract = {A practical guide to finite-element-method (FEM) simulation of 3D deformable solids reviews essential offline FEM simulation techniques: complex nonlinear materials, invertible treatment of elasticity, and model-reduction techniques for real-time simulation.Simulations of deformable solids are important in many applications in computer graphics, including film special effects, computer games, and virtual surgery. FEM has become a popular method in many applications. Both offline simulation and real-time techniques have matured in computer graphics literature.This course is designed for attendees familiar with numerical simulation in computer graphics who would like to obtain a cohesive picture of the various FEM simulation methods available, their strengths and weaknesses, and their applicability in various simulation scenarios. The course is also a practical implementation guide for the visual-effects developer, offering a very lean yet adequate synopsis of the underlying mathematical theory. The first section introduces FEM deformable-object simulation and its fundamental concepts, such as deformation gradient, strain, stress, and elastic energy, discusses corotational FEM models, isotropic hyperelasticity, and numerical methods such as conjugate gradients and multigrid. The second section presents the state of the art in model reduction techniques for real-time FEM solid simulation. Topics include linear modal analysis, modal warping, subspace simulation, domain decomposition, and which techniques are suitable for which application.},
+booktitle = {ACM SIGGRAPH 2012 Courses},
+articleno = {20},
+numpages = {50},
+location = {Los Angeles, California},
+series = {SIGGRAPH '12}
+}
+
+
+@inproceedings{wang2023exploring,
+  title={Exploring clip for assessing the look and feel of images},
+  author={Wang, Jianyi and Chan, Kelvin CK and Loy, Chen Change},
+  booktitle={Proceedings of the AAAI conference on artificial intelligence},
+  volume={37},
+  number={2},
+  pages={2555--2563},
+  year={2023}
+}
+
+@article{hao2024meshtron,
+  title={Meshtron: High-fidelity, artist-like 3d mesh generation at scale},
+  author={Hao, Zekun and Romero, David W and Lin, Tsung-Yi and Liu, Ming-Yu},
+  journal={arXiv preprint arXiv:2412.09548},
+  year={2024}
+}
+
+@inproceedings{decatur20233d,
+  title={3d highlighter: Localizing regions on 3d shapes via text descriptions},
+  author={Decatur, Dale and Lang, Itai and Hanocka, Rana},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={20930--20939},
+  year={2023}
+}
+
+@incollection{sifakis2012fem,
+  title={FEM simulation of 3D deformable solids: a practitioner's guide to theory, discretization and model reduction},
+  author={Sifakis, Eftychios and Barbic, Jernej},
+  booktitle={Acm siggraph 2012 courses},
+  pages={1--50},
+  year={2012}
+}
+
+
+@inproceedings{sorkine2004laplacian,
+  title={Laplacian surface editing},
+  author={Sorkine, Olga and Cohen-Or, Daniel and Lipman, Yaron and Alexa, Marc and R{\"o}ssl, Christian and Seidel, H-P},
+  booktitle={Proceedings of the 2004 Eurographics/ACM SIGGRAPH symposium on Geometry processing},
+  pages={175--184},
+  year={2004}
+}
+
+@inproceedings{yu2004poisson,
+author = {Yu, Yizhou and Zhou, Kun and Xu, Dong and Shi, Xiaohan and Bao, Hujun and Guo, Baining and Shum, Heung-Yeung},
+title = {Mesh editing with poisson-based gradient field manipulation},
+year = {2004},
+isbn = {9781450378239},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1186562.1015774},
+doi = {10.1145/1186562.1015774},
+booktitle = {ACM SIGGRAPH 2004 Papers},
+pages = {644–651},
+numpages = {8},
+keywords = {Local Transform Propagation, Mesh Deformation, Mesh Filtering, Object Merging, Poisson Equation},
+location = {Los Angeles, California},
+series = {SIGGRAPH '04}
+}
+
+@inproceedings{sorkine2007rigid,
+  title={As-rigid-as-possible surface modeling},
+  author={Sorkine, Olga and Alexa, Marc},
+  booktitle={Symposium on Geometry processing},
+  volume={4},
+  pages={109--116},
+  year={2007},
+  organization={Citeseer}
+}
+
+@ARTICLE{botschsorkine08deformsurvey,
+  author={Botsch, Mario and Sorkine, Olga},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={On Linear Variational Surface Deformation Methods}, 
+  year={2008},
+  volume={14},
+  number={1},
+  pages={213-230},
+  keywords={Linear systems;Deformable models;Robustness;Equations;Minimization methods;Robust control;Optimization methods;Active shape model;Solid modeling;Machinery;mesh editing;linear optimization;discrete differential operators;mesh editing;linear optimization;discrete differential operators},
+  doi={10.1109/TVCG.2007.1054}}
+
+@inproceedings{skinningcourse:2014,
+  author = {Alec Jacobson and Zhigang Deng and Ladislav Kavan and JP Lewis},
+  title = {Skinning: Real-time Shape Deformation},
+  booktitle = {ACM SIGGRAPH 2014 Courses},
+  year = {2014},
+}
+
+@inproceedings{zhou2019continuity,
+  title={On the continuity of rotation representations in neural networks},
+  author={Zhou, Yi and Barnes, Connelly and Lu, Jingwan and Yang, Jimei and Li, Hao},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+  pages={5745--5753},
+  year={2019}
+}
+
+@inproceedings{baraff1998large,
+  title={Large steps in cloth simulation},
+  author={Baraff, David and Witkin, Andrew},
+  booktitle={Proceedings of the 25th annual conference on Computer graphics and interactive techniques},
+  pages={43--54},
+  year={1998}
+}
+
+@book{shirley2009fundamentals,
+  title={Fundamentals of computer graphics},
+  author={Shirley, Peter and Ashikhmin, Michael and Marschner, Steve},
+  year={2009},
+  publisher={AK Peters/CRC Press}
+}
+
+@article{li2020incremental,
+  title={Incremental potential contact: intersection-and inversion-free, large-deformation dynamics.},
+  author={Li, Minchen and Ferguson, Zachary and Schneider, Teseo and Langlois, Timothy R and Zorin, Denis and Panozzo, Daniele and Jiang, Chenfanfu and Kaufman, Danny M},
+  journal={ACM Trans. Graph.},
+  volume={39},
+  number={4},
+  pages={49},
+  year={2020}
+}
+
+@article{lan2024efficient,
+  title={Efficient GPU cloth simulation with non-distance barriers and subspace reuse},
+  author={Lan, Lei and Lu, Zixuan and Long, Jingyi and Yuan, Chun and Li, Xuan and He, Xiaowei and Wang, Huamin and Jiang, Chenfanfu and Yang, Yin},
+  journal={arXiv preprint arXiv:2403.19272},
+  year={2024}
+}
+
+@article{aigerman2022neural,
+  title={Neural jacobian fields: Learning intrinsic mappings of arbitrary meshes},
+  author={Aigerman, Noam and Gupta, Kunal and Kim, Vladimir G and Chaudhuri, Siddhartha and Saito, Jun and Groueix, Thibault},
+  journal={arXiv preprint arXiv:2205.02904},
+  year={2022}
+}
+
+@article{Fulton:LSD:2018,
+  title ={Latent-space Dynamics for Reduced Deformable Simulation},
+  author = {Lawson Fulton and Vismay Modi and David Duvenaud and David I. W. Levin and Alec Jacobson},
+  year = {2019},
+  journal = {Computer Graphics Forum}
+}
+
+@InProceedings{wang2019dcp,
+author = {Wang, Yue and Solomon, Justin M.},
+title = {Deep Closest Point: Learning Representations for Point Cloud Registration},
+booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+month = {October},
+year = {2019}
+}
+
+@InProceedings{lang2021dpc,
+  author = {Lang, Itai and Ginzburg, Dvir and Avidan, Shai and Raviv, Dan},
+  title = {{DPC: Unsupervised Deep Point Correspondence via Cross and Self Construction}},
+  booktitle = {Proceedings of the International Conference on 3D Vision (3DV)},
+  pages = {1442--1451},
+  year = {2021}
+}
+
+@inproceedings{guo2025craft,
+  title={CRAFT: Designing Creative and Functional 3D Objects},
+  author={Guo, Michelle and Tang, Mia and Cha, Hannah and Zhang, Ruohan and Liu, C Karen and Wu, Jiajun},
+  booktitle={2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  pages={7215--7224},
+  year={2025},
+  organization={IEEE}
+}
+
+@article{mildenhall2021nerf,
+  title={Nerf: Representing scenes as neural radiance fields for view synthesis},
+  author={Mildenhall, Ben and Srinivasan, Pratul P and Tancik, Matthew and Barron, Jonathan T and Ramamoorthi, Ravi and Ng, Ren},
+  journal={Communications of the ACM},
+  volume={65},
+  number={1},
+  pages={99--106},
+  year={2021},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{kerbl20233d,
+  title={3D Gaussian splatting for real-time radiance field rendering.},
+  author={Kerbl, Bernhard and Kopanas, Georgios and Leimk{\"u}hler, Thomas and Drettakis, George},
+  journal={ACM Trans. Graph.},
+  volume={42},
+  number={4},
+  pages={139--1},
+  year={2023}
+}
+
+@misc{xu2024instantmeshefficient3dmesh,
+      title={InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models}, 
+      author={Jiale Xu and Weihao Cheng and Yiming Gao and Xintao Wang and Shenghua Gao and Ying Shan},
+      year={2024},
+      eprint={2404.07191},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2404.07191}, 
+}

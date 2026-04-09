@@ -1,0 +1,10 @@
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+We propose \ourmethod{}, a method that finds physically and semantically realistic compositions of two input meshes. Given an accessory, a base mesh with a user-defined target region, and optional text strings for both meshes, \ourmethod{} uses a multi-step optimization framework to realistically fit the meshes onto each other while preventing intersections.
+We initialize the shapes' rigid configuration via a structured alignment scheme using Vision-to-Language Models, which we then optimize using a combination of attractive geometric losses, and a physics-inspired barrier loss that prevents surface intersections. 
+We then obtain a final deformation of the object, assisted by a diffusion prior.
+% To achieve a tight and non-intersecting fit, we present a novel 4-step divide-and-conquer approach, where we first tightly fit, solve for intersections, re-tighten the fit, then non-rigidly deform the accessory using both semantic and physical guidance. Usefully, our model incorporates a VLM-initialization module that uses user-input text to deduce the materials of the accessory, then tunes the materials elasticity parameters to control the degrees of deformation. 
+Our method successfully fits accessories of various materials over a breadth of target regions, and is designed to fit directly into existing digital artist workflows. We demonstrate the robustness and accuracy of our pipeline by comparing it with generative approaches and traditional registration algorithms.
+\end{abstract}

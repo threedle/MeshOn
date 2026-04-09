@@ -1,0 +1,431 @@
+% \documentclass[runningheads]{llncs}
+
+% ---------------------------------------------------------------
+% Include basic ECCV package
+
+% TODO REVIEW: Insert your submission number below by replacing '*****'
+% TODO FINAL: Comment out the following line for the camera-ready version
+% \usepackage[year=2026,ID=10887]{eccv}
+% TODO FINAL: Un-comment the following line for the camera-ready version
+%\usepackage{eccv}
+
+% OPTIONAL: Un-comment the following line for a version which is easier to read
+% on small portrait-orientation screens (e.g., mobile phones, or beside other windows)
+%\usepackage[mobile]{eccv}
+
+% ---------------------------------------------------------------
+% Other packages
+
+% \usepackage{eccvabbrv}
+
+% % Import additional packages in the preamble file, before hyperref
+% \usepackage{booktabs}
+% \usepackage{tabularx}
+% \usepackage{xcolor}
+% \input{preamble}
+
+% It is strongly recommended to use hyperref, especially for the review version.
+% hyperref with option pagebackref eases the reviewers' job.
+% Please disable hyperref *only* if you encounter grave issues, 
+% e.g. with the file validation for the camera-ready version.
+%
+% If you comment hyperref and then uncomment it, you should delete *.aux before re-running LaTeX.
+% (Or just hit 'q' on the first LaTeX run, let it finish, and you should be clear).
+% \usepackage[pagebackref,breaklinks,colorlinks]{hyperref}
+
+%%%%%%%%% PAPER ID - PLEASE UPDATE
+\appendix
+\def\paperID{} % *** Enter the Paper ID here
+
+%%%%%%%%% TITLE - PLEASE UPDATE
+
+
+%%%%%%%%% AUTHORS - PLEASE UPDATE
+% \author{First Author\\
+% Institution1\\
+% Institution1 address\\
+% {\tt\small firstauthor@i1.org}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+% \and
+% Second Author\\
+% Institution2\\
+% First line of institution2 address\\
+% {\tt\small secondauthor@i2.org}
+% }
+
+% \begin{document}
+
+% \maketitle
+\title{Supplementary Materials}
+\author{}
+\institute{}
+% \begin{center}
+%     {\Large\bfseries Contents}
+% \end{center}
+% \vspace{-0.8em}
+
+% {\small
+% \noindent
+% 1\quad Technical Details \dotfill\ \pageref{sec:technical_details}\\
+% \hspace*{1.5em}1.1\quad Distance Measures \dotfill\ 
+% \pageref{subsec:distance_measures}\\
+% \hspace*{1.5em}1.2\quad Vector-Optimized Bounding Volume Hierarchy \dotfill\ \pageref{subsec:bvh}\\
+% \hspace*{1.5em}1.3\quad VLM \dotfill\ \pageref{subsec:vlm}\\
+% 2\quad Additional Experiments and Results \dotfill\ \pageref{sec:additional_results}\\
+% \hspace*{1.5em}2.1\quad User Study \dotfill\ \pageref{subsec:user_study}\\
+% \hspace*{1.5em}2.2\quad Experiment Details \dotfill\ \pageref{subsec:experiment_details}\\
+% 3\quad Computational Details \dotfill\ \pageref{sec:computational_details}\\
+
+% }
+% \begin{document}
+\maketitle
+\vspace{0.8em}
+
+
+\section{Technical Details}
+\label{sec:technical_details}
+In this section, we will delineate some of the technical details and derivations we have left out in the method section of our main paper. 
+
+\subsection{Distance Measures}
+\label{subsec:distance_measures}
+
+Recall that at the core of both our proximity loss $\mathcal{L}_p$ and the \textit{Incremental Potential Contact} barrier energy, $\mathcal{L}_{IPC}$ is the calculation of a vertex-to-surface distance measure between the two meshes. 
+
+Let $\objectmesh$ denote our object mesh and $\basemesh$ our base mesh. The objective of this distance metric is to give an efficient measure of distance between the user-defined localized region on the base mesh, denoted by $\highlightedmesh$, and $\objectmesh$, and vice-versa. The minimum distance between the surface of any two triangular meshes is the minimum of the minimum pairwise edge-to-edge and triangle-to-vertex distance.
+ In practice, we observe that using only the triangle-to-vertex distance gives us a practically ``good-enough" measure of the surface-wise distance without causing too much memory overhead. Intuitively, for measuring the vertex-to-triangle distance from $\objectmesh$ to $\highlightedmesh$, we calculate the distance from all vertices on $\objectmesh$, $v_i$, to the triangles on $\highlightedmesh$, $\basefaces$.
+In order to reduce memory overhead in gradient back-propagation, we follow \cite{li2020incremental} and create a masked distance function $\hat{d}$ by thresholding the minimum triangle-to-vertex distance from each vertex $v_i$ on the object mesh to the triangles on the localized surface of the base mesh, $\highlightedmesh$:
+\[
+\hat{d}(v_i, \highlightedmesh) = 
+\begin{cases}
+d(v_i, \highlightedmesh) & \text{if } \min_{\mathcal{F}_b \in \highlightedmesh} d(v_i, \mathcal{F}_b) < \thresholdprox,\\
+0 & \text{otherwise},
+\end{cases}
+\]
+where $\thresholdprox = 0.5$. We discarding any triangle-to-point distance pairs that are far enough so their gradients have no meaningful influence over the alignment process. 
+
+\paragraph{Proximity Loss.}
+Using this measure, we approximate the proximity between the two mesh surfaces by calculating the vertex-to-face measure, $\hat{d}$, for both $\highlightedmesh$ and $\objectmesh$.
+
+Our proximity loss is naturally defined as 
+\begin{equation}
+\mathcal{L}_{p}(\parameters) = \sum_{\vertex_{i} \in \objectmesh} \hat{d} (\rigid(\parameters)\vertex_i, \highlightedmesh)^2 +  \sum_{\vertex_{j} \in \highlightedmesh} \hat{d}(\vertex_j, \rigid (\parameters)\objectmesh)^2\, ,
+\label{proximity_loss}
+\end{equation}
+
+During optimization, we update the pairwise triangle-to-vertex distance measure, $\min_{\mathcal{F}_b \in \highlightedmesh}$, thereby iteratively updating which triangle-vertex pairs are to be brought closer through the optimization process. Our key insight is that by iteratively updating these pairs, the object mesh $\objectmesh$ eventually moves in a direction that not only minimizes the shortest distance between the two surfaces, but also induces as many triangle-vertex pairs to be in close contact to each other, eventually finding a good ``fit" between the two meshes.
+
+\input{figures/supplementary/bvh_quant}
+\paragraph{Barrier Loss.}
+We also reuse the contact measure $d(v_i, \mathcal{F}_b)$ to derive a loss term that prevents physical intersection between the two surfaces. 
+We define a contact set based on a smaller threshold:
+\[
+\mathcal{C} = \{ i \mid \min_{\mathcal{F}_b \in \highlightedmesh} d(v_i, \mathcal{F}_b) < \ell \},
+\]
+where $\contactthreshold$ is a much smaller value than that of the proximity loss ($\ell=0.01$). This is because in order to prevent contact, we only need to account for the triangle-to-vertex pairs that are close enough such  to cause surface intersections.  
+
+To differentiably penalize against proximity for these near-contact vertices, we adopt the clamped log-barrier energy from \cite{li2020incremental}. Given the pre-filtered distances $d_i$ corresponding to vertices in $\mathcal{C}$, the barrier energy is defined as:
+\[
+b_{\contactthreshold}(d_i) = 
+-(d_i - \contactthreshold)^2 \ln\left( \dfrac{d_i}{\contactthreshold} \right),
+\qquad \text{for } d_i < \contactthreshold.
+\]
+This energy smoothly penalizes points as they approach the base surface, with a second-order continuous (\( C^2 \)) form at the boundary $d_i = \contactthreshold$, and naturally vanishes as $d_i \to \contactthreshold$ or beyond. As a result, the total contact loss is expressed as:
+\begin{equation}
+\mathcal{L}_{\text{IPC}}(\parameters) = \sum_{\vertex_i \in \objectmesh} b_{\contactthreshold}\left(d\left(\rigid(\parameters)\vertex_i,\basemesh\right)\right)\,.
+\label{contact_loss}
+\end{equation}
+
+We additionally note that this distance measure is implemented as a batched tensorized operation in Pytorch, saving us from for-looping through the entire list of vertices and faces.
+
+\subsection{Vector-Optimized Bounding Volume Hierarchy}
+\label{subsec:bvh}
+
+Unfortunately, calculating $d(v_i, \mathcal{F}_b)$ requires $\mathcal{O}(|\objectverts||\basefaces|)$ computational complexity, where $\objectverts$ is the number of vertices and $\basefaces$ the number of faces involved. In other words, the computation could become infeasibly expensive as mesh resolution scales.
+
+To overcome this challenge while adequately taking advantage of our method's tensorized nature, we employ a  Vector-Optimized Bounding Volume Hierarchy (BVH) structure that efficiently parses through a BVH tree before it reaches an optimal depth and falls back to a tensorized batch query of all triangle instances within its child nodes. 
+\paragraph{Building the Tree}
+To build the vector-optimized BVH over a face subset $\mathcal{F}$, our goal is to recursively calculate and store the minimum and maximum bounding box, $\mathbf{b}_{\min}=\min_{f\in[s:e)}\mathbf{m}_f$ and 
+$\mathbf{b}_{\max}=\max_{f\in[s:e)}\mathbf{M}_f$
+for each node, where $[s:e)$ is range of triangle indices in the node (and its children). Beginning with the top-most parent node with $[s:e)=[0,num(F))$ and ${(\mathbf{b}_{\min}, \mathbf{b}_{\max}})$ that encompass all triangles $\mathcal{F}$, we select the longest axis of this bounding box and sort the child nodes according to the center of their bounding boxes along the selected axis, ${c_i}$. We then split each node at the median of this sorted list, a process that we recursively repeat until the number of child node reaches a user-specified $\texttt{leaf\_size}$. The key contribution of our vector-optimized BVH is that we stop building this tree when $e-s\le\texttt{leaf\_size}$, where $\texttt{leaf\_size}$ is a variable set either by the user, or by some memory specification. To optimally take advantage of the vectorized nature of our distance calculation while preventing memory overhead from massive matrix multiplication, it is optimal to stop the tree traversal at a gpu-specific depth, and do a batched calculation of $d(n_{\text{vert}}^{(i)}, T)$ over triangles in the range ${f\in[s:e)}$. For simplicity, we set $\texttt{leaf\_size}=1000$ for all experiments run in this paper. 
+
+\paragraph{Hybrid Best First Traversal}
+The main challenge of using a BVH $\objectmesh$ is that the mesh is continuously transformed each iteration. For rigid transformations (rotation, translation, and scale), the BVH bounding boxes can be efficiently updated by transforming their centers and recalculating new, slightly looser half-extents.
+
+
+For non-rigid transformations, we recalculate BVH structure every $cycle=20$ iterations, assuming the boxes stay relatively axis-aligned and the vertex positions relatively stable. This allows us to reuse the same BVH structure for small number of cycles with minimal sacrifice in accuracy.
+
+
+\subsection{VLM}
+\label{subsec:vlm}
+
+Now we detail how we use Vision Language Models (VLM) to obtain a coarse initialization for Step 1.
+
+Given randomly initialized meshes $\objectmesh$ and $\basemesh$, we aim for a good initialization of $\objectmesh$ by optimizing its orientation using a Vision-to-Language Model (VLM), while determining scale and translation heuristically. We utilize a multi-agent VLM pipeline responsible for defining semantic alignment criteria and classifying rendered views to output a compatibility score. 
+
+The role of the first agent, the \textit{Describer} (Table \ref{tab:prompt_describer}), is to define a consistent semantic reference frame for both objects. Given the text labels of $\objectmesh$ and $\basemesh$ (and optionally rendered images), the agent constructs an \textbf{object-centric canonical coordinate frame} for each object. This frame specifies (i) an origin on the object (e.g., a natural landmark such as the center of the head or the midpoint between lenses), and (ii) three semantic axes: a rightward axis $(+X)$, an upward axis $(+Y)$, and a forward-facing axis $(+Z)$. 
+
+Using these axes, the Describer defines the canonical views of each object—namely which parts of the object correspond to the \emph{front}, \emph{back}, \emph{left}, \emph{right}, \emph{top}, and \emph{bottom}. For example, for glasses the front view corresponds to the side where the lenses face outward, while the back view corresponds to the side facing the wearer. In addition to these axis definitions, the Describer also produces textual cues that help distinguish between ambiguous viewpoints (e.g., differences between left and right sides or between front and back). These semantic rules allow subsequent agents to interpret rendered images of the object in a consistent coordinate system regardless of the camera viewpoint.
+
+In parallel, a second agent, the \textit{Material Verifier} (Table \ref{tab:prompt_material}), uses the material description generated by the Describer to infer approximate physical parameters of the target object, specifically Young's modulus and Poisson's ratio.
+
+The second agent, the \textit{Scorer} (Table \ref{tab:prompt_scorer}), samples several candidate orientations by randomly rotating each object, and aligns $\objectmesh$ with $\basemesh$ by deducing their relative alignment from the candidate orientation that VLM deems to find most consistent (in other words, from whatever candidate orientation that VLM gets least confused by). 
+Given each candidate orientation, we render 4 uniformly-sampled views of both objects. For each rendered image, the scorer predicts two simple properties. First, it determines which side of the object (more precisely, which canonical reference frame) is facing the camera,
+\[
+\texttt{visible\_face} \in 
+\{\texttt{front},\texttt{back},\texttt{left},\texttt{right},\texttt{top},\texttt{bottom},\texttt{other}\}.
+\]
+Second, it determines how the object's upward direction appears in the image,
+\[
+\texttt{projected\_up} \in 
+\{\texttt{up},\texttt{down},\texttt{left},\texttt{right},\texttt{other}\}.
+\]
+Intuitively, the first label describes which side of the object (or which side of the canonical frame) the camera sees, while the second label indicates whether the object appears upright, upside down, or rotated sideways in the image.
+
+Before evaluating candidate orientations of $\objectmesh$, we first establish a consistent reference orientation for $\basemesh$. We do this by sampling several uniform azimuthal rotations of $\basemesh$, and selecting the rotation that produces the most self-consistent classifications across views. 
+
+Once the base orientation is fixed, we generate a small set of discrete orientation hypotheses that account for possible viewpoint ambiguities. Intuitively, this step handles cases where the rendered views correspond to the same physical orientation but appear in a different order due to camera sampling.
+
+For example, suppose the four rendered views of $\basemesh$ correspond to the sequence
+\texttt{[front, left, back, right]}. If the base object is rotated by $90^\circ$ around its vertical axis, the same viewpoints would instead appear as
+\texttt{[left, back, right, front]}. We therefore consider all such cyclic shifts of the rendered view sequence to account for these azimuthal offsets. To handle this case where some objects appear upside down in the image, we also include a hypothesis that applies a $180^\circ$ in-plane rotation, which reverses the predicted up direction of the object. In total, there are 8 such possible cyclic shifts that account for the mismatch in orientation, all of which we consider as our hypothesis.
+
+For each candidate orientation of $\objectmesh$, we render $M$ views and classify them using the scorer. The scorer predicts the labels \texttt{visible\_face} and \texttt{projected\_up} for each rendered image together with confidence values for each prediction.
+
+To evaluate a candidate orientation, we compare these predicted labels against those of $\basemesh$ under each of the discrete orientation hypotheses described above. For every view, we check whether the predicted side of the object (e.g., front, left) and the predicted upward direction match those of the base object. A match contributes positively to the score, and this contribution is weighted by the confidence of the corresponding prediction.
+
+The contributions from all views are then averaged to produce a score for the current hypothesis. In addition, we apply a penalty when the sequence of predicted viewpoints across the rendered views is geometrically inconsistent (for example, if the sequence viewpoints do not follow a plausible progression around the object). The final score for a candidate orientation of $\objectmesh$ is then the maximum score obtained across all orientation hypotheses.
+
+Intuitively, this scoring procedure favors orientations where the target object consistently appears aligned with the base object across multiple viewpoints. Orientations that produce mismatched sides, inconsistent upward directions, or implausible viewpoint sequences receive lower scores. Now among $N=20$ orientation of the $\objectmesh$, we simply select the orientation that achieves the highest score as the final initialization.
+
+The final, initialized target mesh is then obtained by applying a similarity transform to the original target vertices, using the orientation selected as giving the highest score:
+\[
+\mathbf{v}_i^{\,0}
+=
+s^* \, R^* \bigl(\mathbf{v}_i - \bar{\mathbf{v}}\bigr) + \mathbf{t}^* ,
+\]
+where \(\mathbf{v}_i\) is a vertex of the original target mesh, \(\bar{\mathbf{v}}=\frac{1}{N}\sum_i \mathbf{v}_i\) is the target-mesh centroid, \(R^*\) is the final rotation, \(s^*\) is the scale, and \(\mathbf{t}^*\) is the translation. In our implementation,
+\[
+R^* = (R_b^*)^\top R_h^* R_t^*,
+\]
+where \(R_t^*\) is the best target rotation found during VLM search, \(R_b^*\) is the rotation initially applied to the base mesh to find the best canonical rotation, and \(R_h^*\) is the best hypothesis correction (the cyclic shift we applied, if theres any). The translation is set to
+\[
+\mathbf{t}^* = \mathbf{c}_{\text{region}} + \boldsymbol{\eta},
+\]
+where \(\mathbf{c}_{\text{region}}\) is the centroid of the user-defined highlighted region and \(\boldsymbol{\eta}\) is an optional Gaussian jitter term. The scale is computed as
+\[
+s^* = 2.0 \cdot
+\frac{\left\|\mathbf{b}^{\max}_{\text{region}}-\mathbf{b}^{\min}_{\text{region}}\right\|_2}
+{\left\|\mathbf{b}^{\max}_{\text{target}}-\mathbf{b}^{\min}_{\text{target}}\right\|_2+\varepsilon}.
+\]
+
+\paragraph{Material Regularization.}
+In this section, we provide more details of how we formulate the material regularization loss.
+Recall that we use a hyperelastic material model to compute a \texttt{Neo-Hookean} loss function that models the internal forces resisting deformation from each jacobians, $J_i$. 
+The function takes the deformation gradient $F$ (which we discretely approximate using our jacobians) for each element, along with two material properties: Young's modulus $E$ and Poisson's ratio $\nu$ (predicted from our \textit{Material Verifier} agent). These are first converted into Lamé parameters: the shear modulus $\mu$ and Lamé's first parameter $\lambda$.
+
+$$
+\mu = \frac{E}{2(1 + \nu)} \quad \text{and} \quad \lambda = \frac{E\nu}{(1 + \nu)(1 - 2\nu)}
+$$
+The function then computes the first Piola-Kirchhoff stress tensor $P$, which represents the internal forces for each element:
+$$
+P(F) = \mu (F - F^{-T}) + \lambda \ln(\det(F)) F^{-T}
+$$
+where $\det(F)$ is the volumetric determinant of the deformation gradient. To apply this continuous model to our discrete mesh, we use our piece-wise Jacobians, $J_i$ to serve as our replacement for the deformation gradient $F$, so the stress for each face can be approximated as, 
+$$
+P(J_i) = \mu (J_i - J_i^{-T}) + \lambda \ln(\det(J_i)) J_i^{-T}
+$$
+and subsequently, 
+
+$$
+\mathcal{L}_{e} =  \sum_i  P(J_i).
+$$
+We defer more details to \cite{sifakis2012fem}.
+
+As a result of this deformation, we can obtain a deformed object mesh that tightly and semantically fits around the user-defined region on the base mesh, while strictly abiding by the physically-imposed requirement of non-intersection. We also note that the $E$ value under 1000 makes the $\objectmesh$ fit too elastically over the $\basemesh$, up to a point where it sacrifices semantic realism. We therefore clamp the minimum value of $E$ to 1000 for the purpose of our experiments, which, with an iterative deformation process, successfully models even the most elastic materials we show in our experiments (e.g. ``extremely soft cloth").
+
+
+\section{Additional Experiments and Results}
+\label{sec:additional_results}
+\subsection{User Study}
+\label{subsec:user_study}
+
+We conduct an extensive user study for 32 participants, using the same 10 set of examples we used for our quantitative evaluation. For each example, we show 6 randomly ordered results from ours and other baseline methods. We then ask the participants to choose the single best result among the 6 options that ``performs the task of putting on a wearable 3D object in the highest quality possible--in a way that best matches the text description provided above in each section.''
+As can be seen from \autoref{tab:user_study}, our method has consistently been ranked by most users to give the most realistic composition result compared to the other 5 baselines. While our method has an overall average preference of 92.81, it also has an extremely strong minimum preference score (the preference score of the example where the method achieved its lowest user preference among all evaluation examples) of 81.25, meaning that even for the ``worst'' example, 81.25 percent of users preferred our results over all the baselines.
+
+\begin{table}[t]
+\vspace{4mm}
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+\multicolumn{7}{l}{\textbf{User Study Results}}\\
+\rowcolor{headercolor}
+Statistic & \shortstack{Instant3Dit} & \shortstack{Best ICP} & \shortstack{Best FGR} & \shortstack{RANSAC+ICP} & \shortstack{RANSAC+FGR} & \shortstack{Ours} \\
+\midrule
+\rowcolor{zebra}
+Average Preference (\%) $\uparrow$ & 2.81 & 3.13 & 0.63 & 0.00 & 0.63 & \textbf{92.81} \\
+Minimum (\%) & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 81.25 \\
+\rowcolor{zebra}
+Maximum (\%) & 15.63 & 12.50 & 3.13 & 0.00 & 3.13 & \textbf{100.00} \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{4mm}
+\caption{User study results comparing six methods for the 3D wearable compositing task. Each entry reports the percentage of participant selections received by each method across all evaluation prompts (32 participants per prompt). We report the average preference percentage, as well as the minimum and maximum percentage achieved by each method on any individual example.}
+\vspace{-2mm}
+\label{tab:user_study}
+\end{table}
+\vspace{-3mm}
+\subsection{Experiment Details}
+\label{subsec:experiment_details}
+\paragraph{Quantitative Comparison} In this section, we will detail how we conduct our quantitative experiments. Among the 5 baselines we compare against in both our quantitative evaluation and user study, we first discuss how we use Instan3dit. Instant3dit takes as input a source mesh and a 3D mask that denotes the local region to make edits. As their 3D mask is not identical to our 2D surface highlights, we manually generate 3D masks that are as close as possible to our 2D highlight. We also note that these 3D masks are more expressive user inputs than our surface highlights, and thus shoudn't be considered a factor that confers our method a quantitative/qualitative edge. One major caveat of comparing against Instant3dit is that the backbone Large Reconstruction Model (LRM) the authors used for their paper is not publicly available (the Adobe LRM). We therefore resorted to the alternative InstantMesh \cite{xu2024instantmeshefficient3dmesh} backbone suggested in their GitHub repositories to run the experiments, which apparently degrades the quality of the results. 
+
+For quantitative evaluation, we ran Instant3dit from the same text prompt processed by \ourmethod{}'s VLM verifiers and the diffusion model used for deformation guidance. We rendered meshes generated from each method in a uniform, grey textured color from 4 manually sampled viewpoints, and averaged the scores across these viewpoints.
+
+
+
+\paragraph{Comparison with Point Registration Methods} We also made qualitative/quantitative comparisons against the Point Cloud Registration Methods, including Iterative Closest Points (ICP), Fast Global Registration (FGR), and Random Sample Consensus (Ransac). We note that all of these methods in a standalone setting is not robust enough (or has too much variance) to meaningfully compare against our method. We therefore take standard practices known to improve these methods' performances, and compare the improved results against our method. For ICP, whose results are known to be greatly influenced by initialization, we sample results from $n=50$ different initializations, and choose the one that gives best RMSE score (we call these \textbf{Best ICP} and \textbf{Best FGR} since we choose the result from best initialiization). Another approach is to use Ransac (which is relatively better at finding coarse global registrations) as an initialization, and using ICP as a second-step, finetuning method (which we call \textbf{Ransac+ICP} and \textbf{Ransac+FGR} in our main paper). We compare our results to both methods in the paper. We also found that for this application, an abnormally high threshold value works best in the most stable, robust manner, so we use $th=5000$ as our ICP threshold. 
+
+For FGR, we take the same approach and run comparisons on both multi-step sampling and Ransac initialization method. We use a voxel size of 0.05 and a distance multiplier of 1.5, which is a default value proposed in its \texttt{Open3d} implementation.
+
+\paragraph{Examples of user study and quantitative comparison}
+In Figure (\ref{fig:quant_examples}), we provide examples of the renderings we used for conducting user study and quantitative evaluations. 
+\section{Computational Details} 
+\label{sec:computational_details}
+We ran all of our experiments on single a40 nvidia gpus. 
+While the runtime depends heavily on the mesh resolution (and the size of user input mask), our method approximately takes around 15-30 minutes to run. The VLM verification stage alone takes a minimum of 5 minutes to run, causing a major bottleneck to the model. While these performance estimates are that of the results we presented in this paper, the total runtime could be greatly reduced without sacrificing too much quality by running each step for significantly less iterations. We will release the exact parameters and code upon acceptance. \paragraph{GPU-Optimized BVH memory and runtime test}
+In Figure (\ref{fig:bvh_quant}), we provide an extensive experiment of varying the $\texttt{leaf\_size}$ parameter of our gpu-optimized BVH structure in calculating the vertex-to-triangle distance measure $\hat{d}(v_i,\mathcal{M}_b)$, as well as doing a single fully-batched computation. Specifically, we calculate $\hat{d}(v_i,\mathcal{M}_b)$ using bvh with varying $\texttt{leaf\_size}$, applied onto progressively subdivided mesh resolutions. For $\objectmesh$, we choose a reasonable resolution that is the approximately the average of object meshes we used in our experiments, with 8646 vertices and 17288 faces.
+We show that  $\texttt{leaf\_size=1000}$ provides a reasonable trade-off between runtime and GPU memory, while running the fully-batched computation without using our BVH structure crashes on high-resolution meshes. We note that the fully-batched computation crashes sooner for lower resolution triangles when employed in our actual optimization pipeline, where factors like autograd trees and backpropagation further constrain gpu memory.
+\newpage
+
+\input{figures/supplementary/quant_examples}
+\newcommand{\placeholder}[1]{\texttt{\textcolor{blue}{<#1>}}}
+
+\section{VLM Prompt Templates}
+
+\begin{center}
+\small
+\captionof{table}{\textbf{Prompt for Agent 1: Semantic Describer.} This agent generates an immutable object-centric canonical reference frame, concise view definitions for both objects, and a material description for the target object.}
+\label{tab:prompt_describer}
+\begin{tabularx}{\linewidth}{X}
+\toprule
+\textbf{System Instruction} \\
+\midrule
+You are an expert in 3D object semantics, pose, and materials. You MUST define an immutable object-centric canonical frame that will be reused later for view classification. This frame must be stable across renders and must not depend on a specific camera. \\
+
+\textbf{OBJECTS:} \\
+- \textbf{TARGET:} \placeholder{target\_label} \\
+- \textbf{BASE:} \placeholder{base\_label} \\
+- \textbf{VISUALS:} [Optional rendered images of target and base meshes from multiple turntable views] \\
+
+\textbf{PART 1: OBJECT-CENTRIC CANONICAL FRAMES} \\
+For each object, define an object-centric canonical frame, including: \\
+- an origin landmark, \\
+- semantic $+X$ (right), \\
+- semantic $+Y$ (up), \\
+- semantic $+Z$ (front / outward-facing direction), \\
+- at least three cues for distinguishing left vs.\ right, \\
+- at least three cues for distinguishing front vs.\ back, \\
+- at least two cues for distinguishing top vs.\ bottom. \\
+
+IMPORTANT: The target frame should be defined relative to how the target is functionally worn on the base, but the axes themselves must remain object-centric and reusable across views. \\
+
+\textbf{PART 2: REQUIRED CLASSIFIER LABELS} \\
+A later classifier will see images of only one object at a time. For each image it must output: \\
+- \texttt{visible\_face} $\in$ \{\texttt{front}, \texttt{back}, \texttt{left}, \texttt{right}, \texttt{top}, \texttt{bottom}, \texttt{other}\}, indicating the dominant canonical side facing the camera; \\
+- \texttt{projected\_up} $\in$ \{\texttt{up}, \texttt{down}, \texttt{left}, \texttt{right}, \texttt{ambiguous}\}, indicating the image-plane direction of the object's canonical $+Y$ axis. \\
+
+Provide concise definitions for these labels for both the target and the base. \\
+
+\textbf{PART 3: MATERIAL DESCRIPTION} \\
+Describe the physical material properties of the \textbf{TARGET object only}. This natural-language description will later be converted into approximate simulation parameters. \\
+
+\textbf{OUTPUT FORMAT:} \\
+You MUST provide your response only as a single valid JSON object with four keys: \\
+\texttt{canonical\_reference}, \texttt{target\_view\_definitions}, \texttt{base\_view\_definitions}, and \texttt{material\_description}. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\vspace{1em}
+\newpage
+\begin{center}
+\small
+\captionof{table}{\textbf{Prompt for Agent 2: View Classifier (Scorer).} This agent classifies views of a \emph{single} object at a time using the immutable object-centric canonical frame generated by Agent 1.}
+\label{tab:prompt_scorer}
+\begin{tabularx}{\linewidth}{X}
+\toprule
+\textbf{System Instruction} \\
+\midrule
+You are a strict viewpoint classifier. You will be shown images of only one object at a time, either the TARGET or the BASE. You must use the immutable object-centric canonical frame below and must not redefine axes for each image. \\
+
+\textbf{INPUT CONTEXT:} \\
+- \textbf{OBJECT ROLE:} \placeholder{TARGET or BASE} \\
+- \textbf{OBJECT LABEL:} \placeholder{object\_label} \\
+- \textbf{OBJECT-CENTRIC CANONICAL FRAME:} \placeholder{canonical\_reference (from Agent 1)} \\
+- \textbf{CONCISE DEFINITIONS FOR THIS OBJECT:} \placeholder{target/base view definitions (from Agent 1)} \\
+- \textbf{VISUALS:} [Rendered images of the object from multiple viewpoints] \\
+
+\textbf{TASK:} \\
+For each image, output: \\
+- \texttt{visible\_face} $\in$ \{\texttt{front}, \texttt{back}, \texttt{left}, \texttt{right}, \texttt{top}, \texttt{bottom}, \texttt{other}\}, indicating the dominant canonical side facing the camera; \\
+- \texttt{projected\_up} $\in$ \{\texttt{up}, \texttt{down}, \texttt{left}, \texttt{right}, \texttt{ambiguous}\}, indicating the image-plane direction of the object's canonical $+Y$ axis; \\
+- \texttt{face\_confidence} $\in [0,1]$; \\
+- \texttt{up\_confidence} $\in [0,1]$; \\
+- a short textual reason citing one or two concrete visual cues. \\
+
+\textbf{IMPORTANT RULES:} \\
+- Do not mention any other object. \\
+- Do not try to force agreement with any external reference. \\
+- Use only the supplied canonical frame and visual evidence. \\
+- Output only JSON. \\
+
+\textbf{OUTPUT FORMAT:} \\
+Respond only with a single JSON object containing a list named \texttt{view\_analysis}. Each entry should contain: \\
+\texttt{view\_pair}, \texttt{visible\_face}, \texttt{projected\_up}, \texttt{face\_confidence}, \texttt{up\_confidence}, and \texttt{reason}. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\newpage
+\begin{center}
+\small
+\captionof{table}{\textbf{Prompt for Agent 3: Material Verifier.} This agent converts the natural-language material description produced by Agent 1 into approximate elastic parameters for simulation.}
+\label{tab:prompt_material}
+\begin{tabularx}{\linewidth}{X}
+\toprule
+\textbf{System Instruction} \\
+\midrule
+You are a materials expert. Based on the following description of an object, infer approximate elastic parameters for simulation. \\
+
+\textbf{INPUT:} \\
+Infer simulation parameters from this description of a '\placeholder{target\_label}': '\placeholder{material\_description (from Agent 1)}'. \\
+
+\textbf{OUTPUT FORMAT:} \\
+Output strictly in JSON with keys: \{\texttt{E}, \texttt{nu}, \texttt{mu}\}, corresponding to Young's modulus, Poisson's ratio, and shear modulus. \\
+
+\textbf{GUIDELINES:} \\
+- Units for \texttt{E} and \texttt{mu} are arbitrary but should be proportional across materials. \\
+- \texttt{nu} should lie in $[0, 0.5]$. \\
+- For technical stability, \texttt{E} must be at least $1000$; if the inferred value is smaller, clamp it to $1000$. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\newpage
+
+% {\small
+% \bibliographystyle{splncs04}
+% \bibliography{supplementary/supplementary_ref}
+% }
+
+% \end{document}

@@ -1,0 +1,92 @@
+% ---------------------------------------------------------------
+
+\newif\ifdraft
+% \drafttrue
+\draftfalse
+
+\ifdraft
+
+\definecolor{silviablue}{HTML}{1D4F91}
+% comments:
+\newcommand{\brian}[1]{{\color{orange}[\textbf{Brian:} #1]}}
+\newcommand{\itai}[1]{{\color{magenta}[\textbf{Itai:} #1]}}
+\newcommand{\silvia}[1]{{\color{silviablue}[\textbf{Silvia:} #1]}}
+\newcommand{\hadar}[1]{{\color{purple}[\textbf{Hadar:} #1]}}
+\newcommand{\rana}[1]{{\color{cyan}[\textbf{Rana:} #1]}}
+
+% adds
+\newcommand{\bk}[1]{{\color{orange}#1}}
+\newcommand{\il}[1]{{\color{magenta}#1}}
+\newcommand{\he}[1]{{\color{purple}#1}}
+\newcommand{\rh}[1]{{\color{cyan}#1}}
+
+\else
+\newcommand{\brian}[1]{}
+\newcommand{\itai}[1]{}
+\newcommand{\hadar}[1]{}
+\newcommand{\rana}[1]{}
+%
+\newcommand{\bk}[1]{{\color{black}#1}}
+\newcommand{\il}[1]{{\color{black}#1}}
+\newcommand{\he}[1]{{\color{black}#1}}
+\newcommand{\rh}[1]{{\color{black}#1}}
+\fi
+
+% ---------------------------------------------------------------
+
+
+% ---------------------------------------------------------------
+\newcommand{\Lcal}{\mathcal{L}}
+
+% ---------------------------------------------------------------
+
+% Add a period to the end of an abbreviation unless there's one
+% already, then \xspace.
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{cf}\onedot} \def\Cf{\emph{Cf}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\iid{i.i.d\onedot} \def\wolog{w.l.o.g\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother
+
+% ---------------------------------------------------------------
+
+%% redefine the \title command so that a variable name is saved in \thetitle, and provides the \maketitlesupplementary command 
+\let\titleold\title
+\renewcommand{\title}[1]{\titleold{#1}\newcommand{\thetitle}{#1}}
+\def\maketitlesupplementary
+   {
+   \newpage
+       \twocolumn[
+        \centering
+        \Large
+        \textbf{\thetitle}\\
+        \vspace{0.5em}Supplementary Material \\
+        \vspace{1.0em}
+       ] %< twocolumn
+   }
+
+% ---------------------------------------------------------------
+
+%% Support for easy cross-referencing (e.g. \cref{sec:intro}
+% configured with \AtEndPreamble as it needs to be called after hyperref
+\AtEndPreamble{
+    \usepackage[capitalize]{cleveref}
+    \crefname{section}{Sec.}{Secs.}
+    \Crefname{section}{Section}{Sections}
+    \Crefname{table}{Table}{Tables}
+    \crefname{table}{Tab.}{Tabs.}
+}
+
+% ---------------------------------------------------------------
+
+%% More compact compact itemize/enumeration (e.g., list contributions)
+\RequirePackage{enumitem}
+\setlist[itemize]{noitemsep,leftmargin=*,topsep=0em}
+\setlist[enumerate]{noitemsep,leftmargin=*,topsep=0em}

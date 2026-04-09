@@ -1,0 +1,96 @@
+\documentclass[runningheads]{llncs}
+
+% ---------------------------------------------------------------
+% Include basic ECCV package
+
+% TODO REVIEW: Insert your submission number below by replacing '*****'
+% TODO FINAL: Comment out the following line for the camera-ready version
+\usepackage[year=2026,ID=10887]{eccv}
+% TODO FINAL: Un-comment the following line for the camera-ready version
+%\usepackage{eccv}
+
+% OPTIONAL: Un-comment the following line for a version which is easier to read
+% on small portrait-orientation screens (e.g., mobile phones, or beside other windows)
+%\usepackage[mobile]{eccv}
+
+% ---------------------------------------------------------------
+% Other packages
+
+\usepackage{eccvabbrv}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+% Your custom preamble (macros like \ourmethod, etc.)
+\input{preamble}
+% \input{macros}
+\usepackage[accsupp]{axessibility}
+
+% ---------------------------------------------------------------
+% Hyperref package
+
+% TODO FINAL: Comment out the following line for the camera-ready version
+%\usepackage[pagebackref,breaklinks,colorlinks,citecolor=eccvblue]{hyperref}
+% TODO FINAL: Un-comment the following line for the camera-ready version
+\usepackage{hyperref}
+\usepackage{wrapfig}
+% Support for ORCID icon
+\usepackage{orcidlink}
+
+\begin{document}
+
+% ---------------------------------------------------------------
+% Title + running head (optional)
+
+% If your title is long, set a shorter running head; otherwise you can omit this.
+% \title{MeshOn: Intersection-Free Mesh to Mesh Composition}
+% \titlerunning{MeshOn: Intersection-Free Mesh Composition}
+\title{MeshOn: Intersection-Free\\Mesh-to-Mesh Composition}
+% \author{Hyunwoo Kim}
+% \authorrunning{Hyunwoo Kim}
+% \institute{Columbia University}
+% \author{Itai Lang}
+% \institute{University of Chicago}
+
+% ---------------------------------------------------------------
+% Authors / institutes (REVIEW: keep anonymized if required by ECCV review policy)
+% Example anonymized review setup:
+
+
+% If you are NOT anonymizing (camera-ready), it would look like:
+\author{Hyunwoo Kim\inst{1} \and
+Itai Lang\inst{2} \and Hadar Averbuch-Elor\inst{3} \and Silvia Sellán\inst{1} \and Rana Hanocka\inst{2}}
+\authorrunning{H. Kim et al.}
+\institute{Columbia University \and University of Chicago \and Cornell University}
+
+\maketitle
+
+% ---------------------------------------------------------------
+% Abstract (LNCS expects an abstract environment)
+
+% If your abstract file does NOT include \begin{abstract}...\end{abstract},
+% then instead do:
+% \begin{abstract}
+% \input{00_abstract_body_only.tex}
+% \keywords{...}
+% \end{abstract}
+
+% ---------------------------------------------------------------
+% Main paper
+\input{figures/teaser/teaser.tex}
+\input{00_abstract.tex}
+\input{01_introduction.tex}
+\input{02_related_work.tex}
+\input{03_method.tex}
+\input{04_experiments.tex}
+\input{05_conclusion.tex}
+% \input{06_acknowledgements.tex}
+\input{07_figures_only_pages.tex}
+\newpage
+{\small
+\bibliographystyle{splncs04}
+\bibliography{references}
+}
+\newpage
+\input{supplementary/supplementary}
+\end{document}
