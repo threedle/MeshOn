@@ -187,14 +187,6 @@ a:hover {
   background: #ffffff;
 }
 
-.meshon-figure-pdf {
-  padding: 0;
-  border: 0;
-  box-shadow: none;
-  background: transparent;
-  overflow: hidden;
-}
-
 .meshon-figure-hero {
   min-height: 360px;
 }
@@ -208,37 +200,6 @@ a:hover {
   width: 100%;
   height: auto;
   border-radius: 14px;
-}
-
-.meshon-pdf-link {
-  display: block;
-  width: 100%;
-  line-height: 0;
-}
-
-.meshon-pdf-shell {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 5.64 / 1;
-  min-height: 120px;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.meshon-pdf-figure {
-  position: absolute;
-  top: -42px;
-  left: -4px;
-  width: calc(100% + 8px);
-  height: calc(100% + 46px);
-  display: block;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  border-radius: 0;
-  background: transparent;
-  pointer-events: none;
 }
 
 .meshon-figure-grid {
@@ -373,23 +334,8 @@ a:hover {
     padding: 0.6rem;
   }
 
-  .meshon-figure-pdf,
-  .meshon-figure-hero.meshon-figure-pdf,
-  .meshon-figure-wide.meshon-figure-pdf {
-    padding: 0;
-  }
-
   .meshon-figure-grid {
     grid-template-columns: 1fr;
-  }
-
-  .meshon-pdf-shell {
-    min-height: 72px;
-  }
-
-  .meshon-pdf-figure {
-    top: -34px;
-    height: calc(100% + 38px);
   }
 
   .placeholder-path {
