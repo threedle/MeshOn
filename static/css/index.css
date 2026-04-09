@@ -191,7 +191,8 @@ a:hover {
   padding: 0;
   border: 0;
   box-shadow: none;
-  background: transparent;
+  background: #ffffff;
+  overflow: hidden;
 }
 
 .meshon-figure-hero {
@@ -211,7 +212,7 @@ a:hover {
 
 .meshon-pdf-figure {
   display: block;
-  width: 100%;
+  width: calc(100% + 6px);
   aspect-ratio: 5.64 / 1;
   min-height: 120px;
   border: 0 !important;
@@ -220,6 +221,7 @@ a:hover {
   border-radius: 0;
   overflow: hidden;
   background: transparent;
+  margin: -3px;
 }
 
 .meshon-figure-grid {
