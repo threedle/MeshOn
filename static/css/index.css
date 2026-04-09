@@ -206,10 +206,11 @@ a:hover {
   display: block;
   width: 100%;
   aspect-ratio: 5.64 / 1;
-  min-height: 96px;
+  min-height: 120px;
   border: 0;
   border-radius: 14px;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .meshon-figure-grid {
@@ -349,7 +350,7 @@ a:hover {
   }
 
   .meshon-pdf-figure {
-    min-height: 64px;
+    min-height: 72px;
   }
 
   .placeholder-path {
