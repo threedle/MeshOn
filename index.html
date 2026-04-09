@@ -201,14 +201,11 @@
         </div>
       </div>
 
-      <p class="section-divider" aria-hidden="true">* * *</p>
+      <!-- <p class="section-divider" aria-hidden="true">* * *</p>
 
       <div class="page-block">
         <h2 class="title is-3 has-text-centered">Trajectory-based intersection solve</h2>
-        <!-- SECTION FIGURE: static/images/meshon/fig5_trajectory_solve.png -->
-        <!-- Paper source: Figure 5, page 6. -->
-        <!-- Preserve the Gaussian-distribution diagram, the transparent interpolated trajectory frames, and the selected final configuration. -->
-        <!-- This figure is more explanatory than aesthetic; do not crop it too aggressively. -->
+        
         <div class="meshon-figure has-image">
           <img src="./static/images/meshon/fig5_trajectory_solve.png" alt="Trajectory-based intersection solve showing sampled trajectories and a selected final fit">
         </div>
@@ -223,7 +220,7 @@
             Critically, in Step 2 of our algorithm, we sample trajectories to find a close, non-intersecting configuration. Skipping this causes the barrier term in Step 3 to greatly displace the shape away from the base mesh.
           </p>
         </div>
-      </div>
+      </div> -->
 
       <p class="section-divider" aria-hidden="true">* * *</p>
 
@@ -281,12 +278,14 @@
 
       <div class="page-block">
         <h2 class="title is-3 has-text-centered">Ablation</h2>
-        <!-- SECTION FIGURE: static/images/meshon/fig7_ablation.png -->
+        <!-- SECTION FIGURE: static/images/meshon/fig7_ablation.pdf -->
         <!-- Paper source: Figure 7, page 8. -->
         <!-- Preserve the entire left-to-right ablation lineup, including "Our complete algorithm". -->
         <!-- Keep the small labels (e.g., "without VLM initialization", "without Step 1", etc.) readable. -->
         <div class="meshon-figure has-image">
-          <img src="./static/images/meshon/fig7_ablation.png" alt="Ablation of the MeshOn pipeline showing the effect of removing initialization and optimization steps">
+          <object class="meshon-pdf-figure" data="./static/images/meshon/fig7_ablation.pdf" type="application/pdf" aria-label="Ablation of the MeshOn pipeline showing the effect of removing initialization and optimization steps">
+            <img src="./static/images/meshon/fig7_ablation.png" alt="Ablation of the MeshOn pipeline showing the effect of removing initialization and optimization steps">
+          </object>
         </div>
         <div class="content has-text-justified narrative-copy">
           <p>
