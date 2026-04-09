@@ -46,13 +46,13 @@ a:hover {
 
 .navbar-logo {
   display: block;
-  height: 250px;
+  height: 125px;
   width: auto;
-  max-width: 700px;
+  max-width: 350px;
 }
 
 .geometry-and-city-icon {
-  height: 220px;
+  height: 110px;
 }
 
 .publication-header .hero-body {
@@ -309,12 +309,12 @@ a:hover {
   }
 
   .navbar-logo {
-    height: 140px;
-    max-width: 360px;
+    height: 70px;
+    max-width: 180px;
   }
 
   .geometry-and-city-icon {
-    height: 124px;
+    height: 62px;
   }
 
   .publication-title {
